@@ -39,4 +39,5 @@ git submodule add https://github.com/premie/firm-site-kit.git src/kit
 | `RevealOnScroll` | Fades sections/cards up as they enter the viewport; no-JS and reduced-motion safe (CSS in tokens.css) |
 | `ResultsStrip` | Past case results as cards (outcome, charge, court), with a disclaimer and a link to the full list |
 | `PriceCta` | A self-serve price call to action (e.g. traffic ticket sign-up): heading, reasons, button, optional phone |
+| `TeamCards` | The firm's people as cards: photo or initials, name, role, link |
 | `ReviewsSection` | Heading, optional aggregate (rating + count + link), optional video, equal-height grid (desktop) / snap carousel (phones), disclaimer |
