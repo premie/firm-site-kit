@@ -20,6 +20,7 @@ export function ReviewsSection({
   video,
   disclaimer = DISCLAIMER,
   align = 'start',
+  showAverage = true,
 }: {
   heading?: string
   intro?: string
@@ -30,6 +31,8 @@ export function ReviewsSection({
   video?: { id: string; title: string; cropLetterbox?: boolean } | null
   disclaimer?: string
   align?: 'start' | 'center'
+  /** false: show the number of reviews only, no average or stars. */
+  showAverage?: boolean
 }) {
   if (!reviews.length) return null
   const center = align === 'center'
@@ -44,11 +47,11 @@ export function ReviewsSection({
         </div>
         {aggregate && aggregate.count > 0 && !video && (
           <a href={aggregate.href} rel="noopener" target="_blank" className="flex items-center gap-2 text-sm text-graphite hover:text-ink" data-event="reviews_aggregate">
-            <Stars rating={aggregate.rating} />
+            {showAverage && <Stars rating={aggregate.rating} />}
             <span className="font-semibold text-ink">
               {aggregate.count.toLocaleString('en-US')} {aggregate.source ?? ''} reviews
             </span>
-            <span>({aggregate.rating.toFixed(1)})</span>
+            {showAverage && <span>({aggregate.rating.toFixed(1)})</span>}
           </a>
         )}
       </div>
@@ -70,10 +73,12 @@ export function ReviewsSection({
               {/* The volume of reviews leads; the average sits under it, small. */}
               <span className="font-serif text-6xl leading-none">{aggregate.count.toLocaleString('en-US')}</span>
               <span className="mt-2 text-lg text-paper">{aggregate.source ? `${aggregate.source} reviews` : 'reviews'}</span>
-              <span className="mt-4 flex items-center gap-2 text-sm text-paper/80">
-                <Stars rating={aggregate.rating} className="h-4 w-4" />
-                {aggregate.rating.toFixed(1)} average
-              </span>
+              {showAverage && (
+                <span className="mt-4 flex items-center gap-2 text-sm text-paper/80">
+                  <Stars rating={aggregate.rating} className="h-4 w-4" />
+                  {aggregate.rating.toFixed(1)} average
+                </span>
+              )}
               <span className="mt-6 text-sm font-semibold text-teal">Read them on {aggregate.source ?? 'the source'} →</span>
             </a>
           )}
