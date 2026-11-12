@@ -8,3 +8,14 @@
   --mist: #d6e3e8;
   --graphite: #3c5563;
 }
+
+/* RevealOnScroll: elements below the fold start 12px low and transparent, then settle in. */
+.reveal-pending {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.reveal-pending.reveal-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 400ms ease-out, transform 400ms ease-out;
+}

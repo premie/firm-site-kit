@@ -36,4 +36,5 @@ git submodule add https://github.com/premie/firm-site-kit.git src/kit
 | `StepsTimeline` | Numbered steps in brass rings joined by a line (across on desktop, down on phones), 4:3 images |
 | `MobileCallBar` | Phones only: sticky Call + Consult bar, safe-area padded |
 | `ExitIntentPopup` | Desktop exit-intent offer (mouse leaves through the top, once per session, no phone trigger); per-page offers as data rules; focus trap; dataLayer events |
+| `RevealOnScroll` | Fades sections/cards up as they enter the viewport; no-JS and reduced-motion safe (CSS in tokens.css) |
 | `ReviewsSection` | Heading, optional aggregate (rating + count + link), optional video, equal-height grid (desktop) / snap carousel (phones), disclaimer |
