@@ -1,0 +1,10 @@
+/* The color contract the kit expects. Copy into a site and set its own values. */
+:root {
+  --ink: #042438;
+  --paper: #f5f9fa;
+  --teal: #69ccd2;
+  --deep-teal: #0e6d75;
+  --brass: #b08a3e;
+  --mist: #d6e3e8;
+  --graphite: #3c5563;
+}
