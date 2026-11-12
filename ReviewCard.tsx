@@ -41,7 +41,7 @@ export function ReviewCard({ review, className = '' }: { review: Review; classNa
           <span className="block font-semibold text-ink">{review.author}</span>
           {review.detail && <span className="block truncate text-sm text-graphite">{review.detail}</span>}
         </span>
-        {review.source && <span className="text-xs font-medium uppercase tracking-wide text-graphite/70">{review.source}</span>}
+        {review.source && <span className="text-xs font-medium uppercase tracking-wide text-graphite">{review.source}</span>}
       </figcaption>
     </figure>
   )

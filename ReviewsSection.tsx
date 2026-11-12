@@ -85,7 +85,7 @@ export function ReviewsSection({
       </ul>
 
       <div className="mt-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-        <p className="max-w-3xl text-xs leading-relaxed text-graphite/80">{disclaimer}</p>
+        <p className="max-w-3xl text-xs leading-relaxed text-graphite">{disclaimer}</p>
         {allHref && (
           <a href={allHref} className="inline-flex min-h-12 shrink-0 items-center justify-center rounded-[10px] border-2 border-deep-teal px-5 font-semibold text-ink transition hover:bg-deep-teal/10" data-event="reviews_all">
             {allLabel}
