@@ -35,4 +35,5 @@ git submodule add https://github.com/premie/firm-site-kit.git src/kit
 | `FeatureGrid` | Reasons to choose the firm: 2x2 cards with tinted icon circles on desktop, an icon list on phones |
 | `StepsTimeline` | Numbered steps in brass rings joined by a line (across on desktop, down on phones), 4:3 images |
 | `MobileCallBar` | Phones only: sticky Call + Consult bar, safe-area padded |
+| `ExitIntentPopup` | Desktop exit-intent offer (mouse leaves through the top, once per session, no phone trigger); per-page offers as data rules; focus trap; dataLayer events |
 | `ReviewsSection` | Heading, optional aggregate (rating + count + link), optional video, equal-height grid (desktop) / snap carousel (phones), disclaimer |
