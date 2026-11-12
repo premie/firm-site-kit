@@ -8,6 +8,7 @@ const DISCLAIMER = 'These are individual client experiences. Past results do not
 /**
  * Client reviews: heading, the firm's aggregate rating when it has one, an optional video, then the reviews as
  * equal-height cards (3 across on desktop) or a swipe carousel on phones. Ported from conduit.law's FeaturedReviews.
+ * align="center" centers the heading, the cards (a short last row sits in the middle) and the footer.
  */
 export function ReviewsSection({
   heading = 'What Our Clients Say',
@@ -18,6 +19,7 @@ export function ReviewsSection({
   allLabel = 'Read all reviews',
   video,
   disclaimer = DISCLAIMER,
+  align = 'start',
 }: {
   heading?: string
   intro?: string
@@ -27,16 +29,18 @@ export function ReviewsSection({
   allLabel?: string
   video?: { id: string; title: string; cropLetterbox?: boolean } | null
   disclaimer?: string
+  align?: 'start' | 'center'
 }) {
   if (!reviews.length) return null
+  const center = align === 'center'
   return (
     <section className="not-prose" aria-labelledby="reviews-heading">
-      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <div className={center ? 'flex flex-col items-center gap-4 text-center' : 'flex flex-col gap-4 md:flex-row md:items-end md:justify-between'}>
         <div>
           <h2 id="reviews-heading" className="font-serif text-3xl text-ink md:text-4xl">
             {heading}
           </h2>
-          {intro && <p className="mt-3 max-w-2xl text-graphite">{intro}</p>}
+          {intro && <p className={`mt-3 max-w-2xl text-graphite ${center ? 'mx-auto' : ''}`}>{intro}</p>}
         </div>
         {aggregate && aggregate.count > 0 && !video && (
           <a href={aggregate.href} rel="noopener" target="_blank" className="flex items-center gap-2 text-sm text-graphite hover:text-ink" data-event="reviews_aggregate">
@@ -76,15 +80,19 @@ export function ReviewsSection({
         </div>
       )}
 
-      <ul className="-mx-6 mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0">
+      <ul
+        className={`-mx-6 mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 md:mx-0 md:gap-6 md:overflow-visible md:px-0 md:pb-0 ${
+          center ? 'md:flex-wrap md:justify-center' : 'md:grid md:grid-cols-3'
+        }`}
+      >
         {reviews.map((r) => (
-          <li key={r.author + r.text.slice(0, 24)} className="w-[85%] shrink-0 snap-center md:w-auto">
+          <li key={r.author + r.text.slice(0, 24)} className={`w-[85%] shrink-0 snap-center ${center ? 'md:w-[calc((100%-3rem)/3)]' : 'md:w-auto'}`}>
             <ReviewCard review={r} />
           </li>
         ))}
       </ul>
 
-      <div className="mt-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+      <div className={center ? 'mt-8 flex flex-col items-center gap-4 text-center' : 'mt-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between'}>
         <p className="max-w-3xl text-xs leading-relaxed text-graphite">{disclaimer}</p>
         {allHref && (
           <a href={allHref} className="inline-flex min-h-12 shrink-0 items-center justify-center rounded-[10px] border-2 border-deep-teal px-5 font-semibold text-ink transition hover:bg-deep-teal/10" data-event="reviews_all">
