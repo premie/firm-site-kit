@@ -30,4 +30,9 @@ git submodule add https://github.com/premie/firm-site-kit.git src/kit
 | `Stars` | 0 to 5 stars, labelled for screen readers |
 | `LiteYouTube` | Thumbnail + play button; loads the YouTube iframe only on click |
 | `ReviewCard` | One review: optional stars, quote clamped to 5 lines with Read more, author avatar + detail, optional source |
+| `StatsBand` | Numbers that count up on scroll (static under reduced motion), suffix in brass; 2x2 on phones, 4 across on desktop |
+| `PracticeCards` | Dark cards: icon, title, line, text link pinned to the bottom; hover lift + brass top edge |
+| `FeatureGrid` | Reasons to choose the firm: 2x2 cards with tinted icon circles on desktop, an icon list on phones |
+| `StepsTimeline` | Numbered steps in brass rings joined by a line (across on desktop, down on phones), 4:3 images |
+| `MobileCallBar` | Phones only: sticky Call + Consult bar, safe-area padded |
 | `ReviewsSection` | Heading, optional aggregate (rating + count + link), optional video, equal-height grid (desktop) / snap carousel (phones), disclaimer |
