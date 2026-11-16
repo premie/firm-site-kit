@@ -11,4 +11,11 @@ export type Review = {
   source?: string
 }
 
-export type ReviewAggregate = { rating: number; count: number; href?: string; source?: string }
+export type ReviewAggregate = {
+  rating: number
+  count: number
+  href?: string
+  source?: string
+  /** Where the count comes from, one line per platform, e.g. [{ label: 'Avvo', count: 43, href }]. */
+  breakdown?: { label: string; count: number; href?: string }[]
+}

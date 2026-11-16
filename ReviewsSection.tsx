@@ -73,13 +73,22 @@ export function ReviewsSection({
               {/* The volume of reviews leads; the average sits under it, small. */}
               <span className="font-serif text-6xl leading-none">{aggregate.count.toLocaleString('en-US')}</span>
               <span className="mt-2 text-lg text-paper">{aggregate.source ? `${aggregate.source} reviews` : 'reviews'}</span>
+              {aggregate.breakdown && aggregate.breakdown.length > 1 && (
+                <ul className="mt-3 space-y-1 text-sm text-paper/80">
+                  {aggregate.breakdown.map((b) => (
+                    <li key={b.label}>
+                      {b.count.toLocaleString('en-US')} on {b.label}
+                    </li>
+                  ))}
+                </ul>
+              )}
               {showAverage && (
                 <span className="mt-4 flex items-center gap-2 text-sm text-paper/80">
                   <Stars rating={aggregate.rating} className="h-4 w-4" />
                   {aggregate.rating.toFixed(1)} average
                 </span>
               )}
-              <span className="mt-6 text-sm font-semibold text-teal">Read them on {aggregate.source ?? 'the source'} →</span>
+              <span className="mt-6 text-sm font-semibold text-teal">{aggregate.breakdown ? 'Read client reviews' : `Read them on ${aggregate.source ?? 'the source'}`} →</span>
             </a>
           )}
         </div>
